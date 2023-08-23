@@ -42,7 +42,10 @@
                             {{ task.task }}
                         </td>
                         <td>
-                            {{ task.due_date }}
+                            {{ task.due_date.month }}-{{ task.due_date.day }}-{{ task.due_date.year }}
+                        </td>
+                        <td>
+
                         </td>
                     </tr>
                 {% endfor %}
