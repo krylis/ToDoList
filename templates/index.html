@@ -10,20 +10,44 @@
     <div class="container">
         <br />
 
-        <!--Content-->
-        <div class="input-group mb-3 g-2 row">
+        <!--Input Form-->
+        <form action="{{ url_for('add_task') }}" method="POST">
+            <div class="input-group mb-3 g-2 row">
 
-            <div class="col-sm-7">
-                <input type="text" name="task" class="form-control" placeholder="Enter task..." aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="col-sm">
-                <input placeholder="Select date" type="date" id="datepicker" class="form-control" name="date">
-            </div>
-            <div class="col-sm">
-                <button class="btn btn-primary">Add</button>
-            </div>
+                <div class="col-sm-7">
+                    <input type="text" name="task" class="form-control" placeholder="Enter task..." aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="col-sm">
+                    <input placeholder="Select date" type="date" id="datepicker" class="form-control" name="date">
+                </div>
+                <div class="col-sm">
+                    <button class="btn btn-primary">Add</button>
+                </div>
 
-        </div>
+            </div>
+        </form>
+
+        <!--Task Table-->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Task:</th>
+                    <th>Due Date:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>
+                            {{ task.task }}
+                        </td>
+                        <td>
+                            {{ task.due_date }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
         <!-- Script -->
         <script type="text/javascript">
